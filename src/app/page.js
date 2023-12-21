@@ -2,39 +2,14 @@
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
-<<<<<<< HEAD
-import { useState } from "react"
-=======
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Articles from "./components/Articles";
->>>>>>> e45448d (hope this doenst break)
 
 export default function Home() {
 
   const [isSearching, setIsSearching] = useState(false);
   const [query, setQuery] = useState(null);
-<<<<<<< HEAD
- 
-  return (
-
-    <main className="flex min-h-screen flex-col items-center justify-between bg-black">
-      {!isSearching ?
-      (
-        <>
-         <div className='bg-black w-full h-24 items-center'>
-          <div className='flex flex-row items-center pl-2 pt-2'>
-            <text className='font-bold text-[40px] text-white'>News</text>
-            <text className='font-thin text-newsaify text-[40px]'>AI</text>
-            <text className='font-bold text-[40px] text-white'>fy</text>
-          </div>
-          </div>
-          <div className='h-[90vh] w-full flex flex-row items-center justify-center'>
-            <input className='rounded-full shadow-lg w-1/2 h-20 text-black font-thin text-2xl pl-6 mb-[5%] mr-12'></input>
-            <button className='bg-newsaify rounded-full w-20 h-20 mb-[5%] flex items-center justify-center border border-newsaify hover:bg-black' href="/">
-              <FontAwesomeIcon icon={faArrowRight} className= "w-8 h-12"/>
-            </button>
-=======
   const [buttonPressed, setButtonPressed] = useState(0);
   
   const handleInputChange = (event) => {
@@ -84,15 +59,12 @@ export default function Home() {
               <button className='bg-newsaify rounded-full w-20 h-20 mb-[5%] flex items-center justify-center border border-newsaify hover:bg-black' onClick={() => {getTopArticles()}}>
                 <FontAwesomeIcon icon={faArrowRight} className= "w-8 h-12"/>
               </button>
->>>>>>> e45448d (hope this doenst break)
           </div>
         </>
       )
       :
       (
         <>
-<<<<<<< HEAD
-=======
          <div className='bg-black w-full h-24 items-center'>
             <div className='flex flex-row items-center pl-2 pt-2'>
               <text className='font-bold text-[40px] text-white'>News</text>
@@ -118,7 +90,6 @@ export default function Home() {
               </div>
             </div>
           </div>
->>>>>>> e45448d (hope this doenst break)
         </>
       )
     }
