@@ -17,10 +17,7 @@ module.exports = {
       'newsaify': "#8E92F8",
       'white': "#F4F4FF",
       'black': "#000000",
-<<<<<<< HEAD
-=======
       'queryBG': "#E1DFDF",
->>>>>>> e45448d (hope this doenst break)
     },
   },
   plugins: [],
