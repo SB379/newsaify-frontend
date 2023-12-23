@@ -7,7 +7,9 @@ const Articles = ({ query, buttonPress }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8082/api/search/getArticles?q=${query}`);
+        // https://newsaify-backend.onrender.com
+        // const response = await axios.get(`http://localhost:8082/api/search/getArticles?q=${query}`);
+        const response = await axios.get(`https://newsaify-backend.onrender.com/api/search/getArticles?q=${query}`);
         setJsonData(response.data); // Use response.data instead of response
       } catch (error) {
         console.error('Error fetching data:', error);
