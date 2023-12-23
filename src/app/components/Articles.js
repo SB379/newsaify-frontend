@@ -1,15 +1,23 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 
-const Articles = ({ query, buttonPress }) => {
+const Articles = ({ query, buttonPress, token }) => {
   const [jsonData, setJsonData] = useState(null);
 
   useEffect(() => {
+
+    const config = {
+        headers: {
+            'provider': `Bearer ${token}`,
+            'authorization': `Bearer ${token}`
+        }
+    }
+
     const fetchData = async () => {
       try {
         // https://newsaify-backend.onrender.com
-        // const response = await axios.get(`http://localhost:8082/api/search/getArticles?q=${query}`);
-        const response = await axios.get(`https://newsaify-backend.onrender.com/api/search/getArticles?q=${query}`);
+        // const response = await axios.get(`http://localhost:8082/api/search/getArticles?q=${query}`, config);
+        const response = await axios.get(`https://newsaify-backend.onrender.com/api/search/getArticles?q=${query}`, config);
         setJsonData(response.data); // Use response.data instead of response
       } catch (error) {
         console.error('Error fetching data:', error);
