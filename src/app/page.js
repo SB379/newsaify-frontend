@@ -86,7 +86,8 @@ export default function Home() {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        scopes: 'https://www.googleapis.com/auth/cse'
+        scopes: 'https://www.googleapis.com/auth/cse',
+        redirectTo: 'https://newsaify.vercel.app/',
       }
     })
 
