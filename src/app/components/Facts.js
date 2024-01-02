@@ -23,7 +23,8 @@ const Facts = ({ url, buttonPress }) => {
             // };
   
             try {
-                const response = await axios.get(`http://localhost:8082/api/search/factCheck?url=${url}`)
+                const response = await axios.get(`https://newsaify-backend.onrender.com/api/search/factCheck?url=${url}`);
+                // const response = await axios.get(`http://localhost:8082/api/search/factCheck?url=${url}`)
                 setData(response.data);
             } catch (error){
                 return (
