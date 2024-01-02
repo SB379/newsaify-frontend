@@ -27,7 +27,7 @@ const Articles = ({ query, buttonPress }) => {
     };
 
     fetchData();
-  }, [buttonPress]); // Include query in the dependency array to trigger a re-fetch when the query changes
+  }); // Include query in the dependency array to trigger a re-fetch when the query changes
 
   if (!jsonData) {
     //Will need to wrap this into a div and center it slightly but not an issue right now
