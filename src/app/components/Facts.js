@@ -39,7 +39,7 @@ const Facts = ({ url, buttonPress }) => {
 
         fetchData();
 
-    }, [buttonPress])
+    })
 
     if (!data) {
         return <Discuss
