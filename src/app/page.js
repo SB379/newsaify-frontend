@@ -3,53 +3,52 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
 import { useEffect, useState } from "react";
-import axios from "axios";
 import Articles from "./components/Articles";
 
 
-import { createClient } from '@supabase/supabase-js'
+// import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = 'https://rzmjlphkmwtxctwpirvw.supabase.co'
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ6bWpscGhrbXd0eGN0d3BpcnZ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDE2NjE3NDQsImV4cCI6MjAxNzIzNzc0NH0.7_RMSNls1V9uE2RUI3TmrMWL7rEvD2GzZqBYk3s5WDc'
-const supabase = createClient(supabaseUrl, supabaseKey)
+// const supabaseUrl = 'https://rzmjlphkmwtxctwpirvw.supabase.co'
+// const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ6bWpscGhrbXd0eGN0d3BpcnZ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDE2NjE3NDQsImV4cCI6MjAxNzIzNzc0NH0.7_RMSNls1V9uE2RUI3TmrMWL7rEvD2GzZqBYk3s5WDc'
+// const supabase = createClient(supabaseUrl, supabaseKey)
 
 export default function Home() {
 
-  const [isSearching, setIsSearching] = useState(false);
-  const [query, setQuery] = useState(null);
-  const [buttonPressed, setButtonPressed] = useState(0);
-  const [ isSigned, setIsSigned ] = useState(null);
-  const [ user, setUser] = useState(null);
-  const [ access, setAccess ] = useState(null);
+  const [ isSearching, setIsSearching ] = useState(false);
+  const [ query, setQuery ] = useState(null);
+  const [ buttonPressed, setButtonPressed ] = useState(0);
+  // const [ isSigned, setIsSigned ] = useState(null);
+  // const [ user, setUser ] = useState(null);
+  // const [ access, setAccess ] = useState(null);
 
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data, error
-    }) => {
-      // console.log(data?.session.access_token);
-      if(data?.session?.access_token)
-      {
-        getUserInfo();
+  // useEffect(() => {
+  //   supabase.auth.getSession().then(({ data, error
+  //   }) => {
+  //     // console.log(data?.session.access_token);
+  //     if(data?.session?.access_token)
+  //     {
+  //       getUserInfo();
 
-        if(data?.session?.access_token === null)
-        {
-          // signInWithSpotify();
-          // googleAuth();
-        }
+  //       if(data?.session?.access_token === null)
+  //       {
+  //         // signInWithSpotify();
+  //         // googleAuth();
+  //       }
 
-        setAccess(data?.session?.access_token);
-      } else {
-        setIsSigned(false);
-      }
-    })
+  //       setAccess(data?.session?.access_token);
+  //     } else {
+  //       setIsSigned(false);
+  //     }
+  //   })
 
-    const subscription = supabase.auth.onAuthStateChange((event => {
-      if (event === "SIGNED_OUT") {
-        setIsSigned(false);
-      }
-      return subscription.data.subscription.unsubscribe();
-    }))
+  //   const subscription = supabase.auth.onAuthStateChange((event => {
+  //     if (event === "SIGNED_OUT") {
+  //       setIsSigned(false);
+  //     }
+  //     return subscription.data.subscription.unsubscribe();
+  //   }))
 
-  })
+  // })
 
    
   const handleInputChange = (event) => {
@@ -59,11 +58,11 @@ export default function Home() {
 
   const getTopArticles = async () => {
 
-    if(!access)
-    {
-      console.error('Login is required.');
-      return;
-    }
+    // if(!access)
+    // {
+    //   console.error('Login is required.');
+    //   return;
+    // }
 
     try {
       // Ensure that the query is not null or empty
@@ -74,36 +73,34 @@ export default function Home() {
       setIsSearching(true);
       setButtonPressed(buttonPressed + 1);
       console.log("calling");
-      // const response = await axios.get(`http://localhost:8082/api/search/getArticles?q=${query}`);
-      // setData(response.data);
-      // console.log(response.data);
+
     } catch (error) {
       console.error('Error fetching top articles', error);
     }
   };
 
-  async function googleAuth() {
-    const { data, error } = await supabase.auth.signInWithOAuth({
-      provider: 'google',
-      options: {
-        scopes: 'https://www.googleapis.com/auth/cse',
-        redirectTo: 'https://newsaify.vercel.app/',
-      }
-    })
+  // async function googleAuth() {
+  //   const { data, error } = await supabase.auth.signInWithOAuth({
+  //     provider: 'google',
+  //     options: {
+  //       scopes: 'https://www.googleapis.com/auth/cse',
+  //       redirectTo: 'https://newsaify.vercel.app/',
+  //     }
+  //   })
 
-    getUserInfo();
+  //   getUserInfo();
 
-    setAccess(data.session.access_token);
+  //   setAccess(data.session.access_token);
 
-  }
+  // }
 
-  async function getUserInfo() {
-    const { data: { user } } = await supabase.auth.getUser();
+  // async function getUserInfo() {
+  //   const { data: { user } } = await supabase.auth.getUser();
 
-    setUser(user);
-    setIsSigned(true);
+  //   setUser(user);
+  //   setIsSigned(true);
 
-  }
+  // }
 
   
   return (
@@ -119,7 +116,7 @@ export default function Home() {
               <text className='font-thin text-newsaify text-[40px]'>AI</text>
               <text className='font-bold text-[40px] text-white'>fy</text>
             </div>
-            { !isSigned ?
+            {/* { !isSigned ?
               <>
                 <button className="mt-2 bg-newsaify rounded-full p-4 mr-4 hover:bg-black border border-newsaify" onClick={googleAuth}>
                   <svg xmlns="http://www.w3.org/2000/svg" height="20" width="19.0625" viewBox="0 0 488 512">
@@ -129,11 +126,11 @@ export default function Home() {
               </>
               :
               <>
-                <button className='bg-newsaify rounded-full w-12 h-12 flex items-center justify-center mt-2 mr-4 border-newsaify border-2 justify-center"'>
-                <img className='text-black rounded-full' src = {user.user_metadata.avatar_url} alt = "Spotify User" width={"48"} height={"48"}/>
-              </button>
+                <button className='bg-newsaify rounded-full w-12 h-12 flex items-center justify-center mt-2 mr-4 border-newsaify border-2' disabled = {true}>
+                  <img className='text-black rounded-full' src = {user.user_metadata.avatar_url} alt = "Google User" width={"48"} height={"48"}/>
+                </button>
               </>
-            }
+            } */}
           </div>
           <div className='h-[90vh] w-full flex flex-row items-center justify-center'>
               <input 
@@ -154,7 +151,7 @@ export default function Home() {
               <text className='font-bold text-[40px] text-white'>News</text>
               <text className='font-thin text-newsaify text-[40px]'>AI</text>
               <text className='font-bold text-[40px] text-white'>fy</text>
-              <div className="flex items-center justify-center w-full mr-20">
+              <div className="flex items-center justify-center w-full mr-auto">
                 <input 
                   className='rounded-full shadow-lg w-1/2 h-10 text-black font-thin text-2xl pl-6 mr-12' 
                   placeholder={query} 
@@ -163,15 +160,12 @@ export default function Home() {
                   <FontAwesomeIcon icon={faArrowRight} className= "w-4 h-8"/>
                 </button>
               </div>
+              {/* <button className='bg-newsaify rounded-full w-10 h-10 flex items-center justify-center mt-2 mr-4 border-newsaify border-2' disabled = {true}>
+                <img className='text-black rounded-full' src = {user.user_metadata.avatar_url} alt = "Google User" width={"48"} height={"48"}/>
+              </button> */}
             </div>
             <div className="flex flex-row w-full h-[90vh] overflow-x-hidden">
-              <div className="flex flex-col pl-20 pt-16 w-3/5">
-                <text className="font-thin text-[32px]">Top Stories</text>
-                <Articles query={query} buttonPress = {buttonPressed} token = {access}/>
-              </div>
-              <div className="flex flex-col pl-8 pt-16 w-2/5">
-                <text className="font-thin text-[32px]">AI Verified Facts</text>
-              </div>
+              <Articles query={query} buttonPress = {buttonPressed}/>
             </div>
           </div>
         </>
