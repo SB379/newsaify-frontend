@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Discuss } from "react-loader-spinner"
 
-const Facts = ({ url, token, buttonPress }) => {
+const Facts = ({ url, buttonPress }) => {
 
     const [ data, setData ] = useState(null);
 
@@ -10,12 +10,12 @@ const Facts = ({ url, token, buttonPress }) => {
 
         const fetchData = async () => {
 
-            const config = {
-                headers: {
-                    'provider': `Bearer ${token}`,
-                    'authorization': `Bearer ${token}`
-                }
-            }
+            // const config = {
+            //     headers: {
+            //         'provider': `Bearer ${token}`,
+            //         'authorization': `Bearer ${token}`
+            //     }
+            // }
 
             // Assuming `urls` is an array of URLs
             // const requestBody = {

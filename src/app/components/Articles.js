@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Facts from './Facts';
 import { Discuss } from 'react-loader-spinner';
 
-const Articles = ({ query, buttonPress, token }) => {
+const Articles = ({ query, buttonPress }) => {
   const [jsonData, setJsonData] = useState(null);
 
   useEffect(() => {
@@ -73,7 +73,7 @@ const Articles = ({ query, buttonPress, token }) => {
         </div>
         <div className="flex flex-col pl-8 pt-16 w-2/5">
             <text className="font-thin text-[32px]">AI Verified Facts</text>
-            <Facts url = {jsonData.items[0].link} token = {token} buttonPress = {buttonPress}/>
+            <Facts url = {jsonData.items[0].link} buttonPress = {buttonPress}/>
         </div>
     </div>
     
