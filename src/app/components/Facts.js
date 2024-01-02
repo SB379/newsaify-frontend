@@ -58,7 +58,7 @@ const Facts = ({ url, buttonPress }) => {
     return (
         <div className='flex flex-col'>
             {data.facts.map((fact, index) => (
-                <div className='bg-queryBG bg-opacity-10 rounded-3xl w-[90%] flex mb-10 shadow-newsaify shadow-sm'>
+                <div key = {index} className='bg-queryBG bg-opacity-10 rounded-3xl w-[90%] flex mb-10 shadow-newsaify shadow-sm'>
                     <p key = {index} className = 'text-white font-thin ml-2 p-4'>
                         {fact}
                     </p>
