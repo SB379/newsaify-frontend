@@ -10,6 +10,8 @@ const Facts = ({ url, buttonPress }) => {
 
         const fetchData = async () => {
 
+            setData(null);
+
             // const config = {
             //     headers: {
             //         'provider': `Bearer ${token}`,
