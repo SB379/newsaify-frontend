@@ -50,6 +50,11 @@ export default function Home() {
 
   // })
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      getTopArticles();
+    }
+  };
    
   const handleInputChange = (event) => {
     // Update the query state with the input value
