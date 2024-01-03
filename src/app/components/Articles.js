@@ -57,14 +57,14 @@ const Articles = ({ query, buttonPress }) => {
   return (
     <div className='flex flex-row w-full h-full'>
         <div className="flex flex-col pl-20 pt-16 w-3/5">
-            <text className="font-thin text-[32px]">Top Stories</text>
+            <text className="font-thin text-[32px] text-white">Top Stories</text>
             {jsonData.items.map((item, index) => (
                 <div key={index} className="w-full h-40 bg-queryBG bg-opacity-10 rounded-3xl flex flex-row mb-10">
                 <img src={item.img} className="w-1/3 h-full rounded-tl-3xl rounded-bl-3xl object-cover" alt={`Image ${index}`} />
                 <div className="flex flex-col pl-2">
-                    <h3 className="font-semibold text-lg">{item.title}</h3>
-                    <p className="font-thin text-md">{item.snippet}</p>
-                    <a href={item.link} target="_blank" rel="noopener noreferrer" className="font-thin text-sm flex items-center justify-center bg-newsaify rounded-full hover:bg-white hover:text-newsaify">
+                    <h3 className="font-semibold text-lg text-white">{item.title}</h3>
+                    <p className="font-thin text-md text-white">{item.snippet}</p>
+                    <a href={item.link} target="_blank" rel="noopener noreferrer" className="font-thin text-sm text-white flex items-center justify-center bg-newsaify rounded-full hover:bg-white hover:text-newsaify">
                     Read full article
                     </a>
                 </div>
@@ -72,7 +72,7 @@ const Articles = ({ query, buttonPress }) => {
             ))}
         </div>
         <div className="flex flex-col pl-8 pt-16 w-2/5">
-            <text className="font-thin text-[32px]">AI Verified Facts</text>
+            <text className="font-thin text-[32px] text-white">AI Verified Facts</text>
             <Facts url = {jsonData.items[0].link} buttonPress = {buttonPress}/>
         </div>
     </div>
