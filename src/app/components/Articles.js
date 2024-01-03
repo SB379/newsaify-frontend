@@ -8,6 +8,8 @@ const Articles = ({ query, buttonPress }) => {
 
   useEffect(() => {
 
+    setJsonData(null);
+
     // const config = {
     //     headers: {
     //         'provider': `Bearer ${token}`,
