@@ -2,42 +2,57 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Discuss } from "react-loader-spinner"
 
-const Facts = ({ url, buttonPress }) => {
+const Facts = ({ factJSON, buttonPress }) => {
 
     const [ data, setData ] = useState(null);
 
     useEffect(() => {
 
+        // console.log('working');
+
+        // let endpoint = null;
+
         const fetchData = async () => {
 
             setData(null);
 
-            // const config = {
-            //     headers: {
-            //         'provider': `Bearer ${token}`,
-            //         'authorization': `Bearer ${token}`
-            //     }
-            // }
+            setData(factJSON);
 
-            // Assuming `urls` is an array of URLs
-            // const requestBody = {
-            //     urls: urls,
-            // };
+        //     // const config = {
+        //     //     headers: {
+        //     //         'provider': `Bearer ${token}`,
+        //     //         'authorization': `Bearer ${token}`
+        //     //     }
+        //     // }
+
+        //     // Assuming `urls` is an array of URLs
+        //     // const requestBody = {
+        //     //     urls: urls,
+        //     //     query: query
+        //     // };
   
-            try {
-                const response = await axios.get(`https://newsaify-backend.onrender.com/api/search/factCheck?url=${url}`);
-                // const response = await axios.get(`http://localhost:8082/api/search/factCheck?url=${url}`)
-                setData(response.data);
-            } catch (error){
-                return (
-                    <>
-                        <div className='bg-queryBG bg-opacity-10 rounded-3xl w-[90%] flex flex-col mb-10'>
-                            <text className='text-[#FF0000]'>Error querying our AI Models, try again later</text>
-                        </div>    
-                    </>
-                )
-            }
+        //     try {
+
+        //         // const response = await axios.get(`https://newsaify-backend.onrender.com/api/search/factCheck?url=${url}`);
+        //         // const response = await axios.get(`http://localhost:8082/api/search/factCheck?url=${url}`)
+        //         // const response = await axios.get(`http://localhost:8082/api/search/lang?urls=${urlParam}?query=${query}`);
+        //         const response = await axios.get(endpoint);
+        //         setData(response.data);
+        //     } catch (error){
+
+        //         console.log('going here');
+
+        //         return (
+        //             <>
+        //                 <div className='bg-queryBG bg-opacity-10 rounded-3xl w-[90%] flex flex-col mb-10'>
+        //                     <text className='text-[#FF0000]'>Error querying our AI Models, try again later</text>
+        //                 </div>    
+        //             </>
+        //         )
+        //     }
         }
+
+        // endpoint = prepareLinks();
 
         fetchData();
 

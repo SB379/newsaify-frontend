@@ -77,7 +77,6 @@ export default function Home() {
       }
       setIsSearching(true);
       setButtonPressed(buttonPressed + 1);
-      console.log("calling");
 
     } catch (error) {
       console.error('Error fetching top articles', error);

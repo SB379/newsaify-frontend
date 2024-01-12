@@ -20,7 +20,7 @@ const Articles = ({ query, buttonPress }) => {
     const fetchData = async () => {
       try {
         // https://newsaify-backend.onrender.com
-        // const response = await axios.get(`http://localhost:8082/api/search/getArticles?q=${query}`, config);
+        // const response = await axios.get(`http://localhost:8082/api/search/getArticles?q=${query}`);
         const response = await axios.get(`https://newsaify-backend.onrender.com/api/search/getArticles?q=${query}`);
         setJsonData(response.data); // Use response.data instead of response
       } catch (error) {
@@ -29,6 +29,11 @@ const Articles = ({ query, buttonPress }) => {
     };
 
     fetchData();
+
+    // console.log(factData);
+
+    // getAllLinks();
+
   }, [buttonPress]); // Include query in the dependency array to trigger a re-fetch when the query changes
 
   if (!jsonData) {
@@ -44,23 +49,13 @@ const Articles = ({ query, buttonPress }) => {
         backgroundColor="#000000"
         colors={["#8E92F8", "#8E92F8"]}
         />;
-  }
-
-  function getAllLinks() {
-    if (!jsonData || !jsonData.items) {
-      return [];
-    }
-
-    // Extract links from each item in jsonData
-    const links = jsonData.items.map((item) => item.link);
-    return links;
-  }
+  } 
 
   return (
     <div className='flex flex-row w-full h-full'>
         <div className="flex flex-col pl-20 pt-16 w-3/5">
             <text className="font-thin text-[32px] text-white">Top Stories</text>
-            {jsonData.items.map((item, index) => (
+            {jsonData.articles.items.map((item, index) => (
                 <div key={index} className="w-full h-40 bg-queryBG bg-opacity-10 rounded-3xl flex flex-row mb-10">
                 <img src={item.img} className="w-1/3 h-full rounded-tl-3xl rounded-bl-3xl object-cover" alt={`Image ${index}`} />
                 <div className="flex flex-col pl-2">
@@ -75,7 +70,19 @@ const Articles = ({ query, buttonPress }) => {
         </div>
         <div className="flex flex-col pl-8 pt-16 w-2/5">
             <text className="font-thin text-[32px] text-white">AI Verified Facts</text>
-            <Facts url = {jsonData.items[0].link} buttonPress = {buttonPress}/>
+            {/* {jsonData.facts.facts.map((fact, index) => (
+                <div key = {index} className='bg-queryBG bg-opacity-10 rounded-3xl w-[90%] flex mb-10 shadow-newsaify shadow-sm'>
+                    <p key = {index} className = 'text-white font-thin ml-2 p-4'>
+                        {fact}
+                    </p>
+                </div>
+            ))} */}
+
+          <div  className='bg-queryBG bg-opacity-10 rounded-3xl w-[90%] flex mb-10 shadow-newsaify shadow-sm'>
+            <p  className = 'text-white font-thin ml-2 p-4'>
+                {jsonData.facts}
+            </p>
+          </div>
         </div>
     </div>
     
