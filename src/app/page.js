@@ -140,7 +140,8 @@ export default function Home() {
               <input 
               className='rounded-full shadow-lg w-1/2 h-20 text-black font-thin text-2xl pl-6 mb-[5%] mr-12' 
               placeholder="What are you curious about today?" 
-              onChange={handleInputChange}/>
+              onChange={handleInputChange}
+              onKeyDown={handleKeyPress}/>
               <button className='bg-newsaify rounded-full w-20 h-20 mb-[5%] flex items-center justify-center border border-newsaify hover:bg-black' onClick={() => {getTopArticles()}}>
                 <FontAwesomeIcon icon={faArrowRight} className= "w-8 h-12"/>
               </button>
@@ -159,7 +160,8 @@ export default function Home() {
                 <input 
                   className='rounded-full shadow-lg w-1/2 h-10 text-black font-thin text-2xl pl-6 mr-12' 
                   placeholder={query} 
-                  onChange={handleInputChange}/>
+                  onChange={handleInputChange}
+                  onKeyDown={handleKeyPress}/>
                 <button className='bg-newsaify rounded-full w-10 h-10 flex items-center justify-center border border-newsaify hover:bg-black' onClick={() => {getTopArticles()}}>
                   <FontAwesomeIcon icon={faArrowRight} className= "w-4 h-8"/>
                 </button>
