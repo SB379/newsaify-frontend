@@ -52,23 +52,8 @@ const Articles = ({ query, buttonPress }) => {
   } 
 
   return (
-    <div className='flex flex-row w-full h-full'>
-        <div className="flex flex-col pl-20 pt-16 w-3/5">
-            <text className="font-thin text-[32px] text-white">Top Stories</text>
-            {jsonData.articles.items.map((item, index) => (
-                <div key={index} className="w-full h-40 bg-queryBG bg-opacity-10 rounded-3xl flex flex-row mb-10">
-                <img src={item.img} className="w-1/3 h-full rounded-tl-3xl rounded-bl-3xl object-cover" alt={`Image ${index}`} />
-                <div className="flex flex-col pl-2">
-                    <h3 className="font-semibold text-lg text-white">{item.title}</h3>
-                    <p className="font-thin text-md text-white">{item.snippet}</p>
-                    <a href={item.link} target="_blank" rel="noopener noreferrer" className="font-thin text-sm text-white flex items-center justify-center bg-newsaify rounded-full hover:bg-white hover:text-newsaify">
-                    Read full article
-                    </a>
-                </div>
-                </div>
-            ))}
-        </div>
-        <div className="flex flex-col pl-8 pt-16 w-2/5">
+    <div className='flex flex-col w-full h-full'>
+        <div className="flex flex-col pl-8 pt-16 w-full">
             <text className="font-thin text-[32px] text-white">AI Verified Facts</text>
             {/* {jsonData.facts.facts.map((fact, index) => (
                 <div key = {index} className='bg-queryBG bg-opacity-10 rounded-3xl w-[90%] flex mb-10 shadow-newsaify shadow-sm'>
@@ -78,11 +63,26 @@ const Articles = ({ query, buttonPress }) => {
                 </div>
             ))} */}
 
-          <div  className='bg-queryBG bg-opacity-10 rounded-3xl w-[90%] flex mb-10 shadow-newsaify shadow-sm'>
+          <div  className='bg-queryBG bg-opacity-10 rounded-3xl w-[95%] flex mb-10 shadow-newsaify shadow-sm'>
             <p  className = 'text-white font-thin ml-2 p-4'>
                 {jsonData.facts}
             </p>
           </div>
+        </div>
+        <div className="flex flex-col pl-8 pt-8 w-full">
+            <text className="font-thin text-[32px] text-white">Top Stories</text>
+            {jsonData.articles.items.map((item, index) => (
+                <div key={index} className="w-[95%] h-40 bg-queryBG bg-opacity-10 rounded-3xl flex flex-row mb-10 shadow-newsaify shadow-sm">
+                <img src={item.img} className="w-1/3 h-full rounded-tl-3xl rounded-bl-3xl object-cover" alt={`Image ${index}`} />
+                <div className="flex flex-col pl-2 w-2/3">
+                    <h3 className="font-semibold md:text-xl text-sm text-white">{item.title}</h3>
+                    <p className="font-thin md:text-lg text-xs text-white">{item.snippet}</p>
+                    <a href={item.link} target="_blank" rel="noopener noreferrer" className="md:font-thin font-normal mb-2 mt-auto md:text-lg text-[10px] text-white flex items-center justify-center bg-newsaify rounded-full hover:bg-white hover:text-newsaify md:w-[99%] w-[90%]">
+                    Read full article
+                    </a>
+                </div>
+                </div>
+            ))}
         </div>
     </div>
     

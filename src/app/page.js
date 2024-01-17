@@ -116,9 +116,9 @@ export default function Home() {
         <>
           <div className='bg-black w-full h-24 items-center flex flex-row'>
             <div className='flex flex-row items-center ml-2 mt-2 mr-auto'>
-              <text className='font-bold text-[40px] text-white'>News</text>
-              <text className='font-thin text-newsaify text-[40px]'>AI</text>
-              <text className='font-bold text-[40px] text-white'>fy</text>
+              <text className='font-bold md:text-[40px] text-2xl text-white'>News</text>
+              <text className='font-thin text-newsaify md:text-[40px] text-2xl'>AI</text>
+              <text className='font-bold md:text-[40px] text-2xl text-white'>fy</text>
             </div>
             {/* { !isSigned ?
               <>
@@ -136,14 +136,14 @@ export default function Home() {
               </>
             } */}
           </div>
-          <div className='h-[90vh] w-full flex flex-row items-center justify-center'>
+          <div className='h-[90vh] w-full flex md:flex-row flex-col items-center justify-center'>
               <input 
-              className='rounded-full shadow-lg w-1/2 h-20 text-black font-thin text-2xl pl-6 mb-[5%] mr-12' 
+              className='rounded-full shadow-lg md:w-1/2 w-3/4 h-20 text-black md:font-thin font-normal md:text-2xl pl-6 mb-[5%] md:mr-12' 
               placeholder="What are you curious about today?" 
               onChange={handleInputChange}
               onKeyDown={handleKeyPress}/>
-              <button className='bg-newsaify rounded-full w-20 h-20 mb-[5%] flex items-center justify-center border border-newsaify hover:bg-black' onClick={() => {getTopArticles()}}>
-                <FontAwesomeIcon icon={faArrowRight} className= "w-8 h-12"/>
+              <button className='bg-newsaify rounded-full md:w-20 w-1/2 h-20 md:mb-[5%] mb-[25%] flex items-center justify-center border border-newsaify hover:bg-black' onClick={() => {getTopArticles()}}>
+                <FontAwesomeIcon icon={faArrowRight} className= "w-8 h-12" color="#F4F4FF"/>
               </button>
           </div>
         </>
@@ -152,18 +152,20 @@ export default function Home() {
       (
         <>
          <div className='bg-black w-full h-24 items-center'>
-            <div className='flex flex-row items-center pl-2 pt-2'>
-              <text className='font-bold text-[40px] text-white'>News</text>
-              <text className='font-thin text-newsaify text-[40px]'>AI</text>
-              <text className='font-bold text-[40px] text-white'>fy</text>
+            <div className='flex md:flex-row flex-col items-center pl-2 pt-2'>
+              <div className="flex flex-row items-start md:w-0 w-full">
+                <text className='font-bold md:text-[40px] text-2xl text-white'>News</text>
+                <text className='font-thin text-newsaify md:text-[40px] text-2xl'>AI</text>
+                <text className='font-bold md:text-[40px] text-2xl text-white'>fy</text>
+              </div>
               <div className="flex items-center justify-center w-full mr-auto">
                 <input 
-                  className='rounded-full shadow-lg w-1/2 h-10 text-black font-thin text-2xl pl-6 mr-12' 
+                  className='rounded-full shadow-lg md:w-1/2 w-3/4 h-10 text-black md:font-thin font-normal md:text-2xl pl-6 md:mr-12 mr-6' 
                   placeholder={query} 
                   onChange={handleInputChange}
                   onKeyDown={handleKeyPress}/>
-                <button className='bg-newsaify rounded-full w-10 h-10 flex items-center justify-center border border-newsaify hover:bg-black' onClick={() => {getTopArticles()}}>
-                  <FontAwesomeIcon icon={faArrowRight} className= "w-4 h-8"/>
+                <button className='bg-newsaify rounded-full md:w-10 w-16 h-10 flex items-center justify-center border border-newsaify hover:bg-black' onClick={() => {getTopArticles()}}>
+                  <FontAwesomeIcon icon={faArrowRight} className= "w-4 h-8" color="#F4F4FF"/>
                 </button>
               </div>
               {/* <button className='bg-newsaify rounded-full w-10 h-10 flex items-center justify-center mt-2 mr-4 border-newsaify border-2' disabled = {true}>
