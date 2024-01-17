@@ -53,7 +53,7 @@ const Articles = ({ query, buttonPress }) => {
 
   return (
     <div className='flex flex-col w-full h-full'>
-        <div className="flex flex-col pl-8 pt-16 w-full">
+        <div className="flex flex-col pl-8 md:pt-16 pt-4 w-full">
             <text className="font-thin text-[32px] text-white">AI Verified Facts</text>
             {/* {jsonData.facts.facts.map((fact, index) => (
                 <div key = {index} className='bg-queryBG bg-opacity-10 rounded-3xl w-[90%] flex mb-10 shadow-newsaify shadow-sm'>
