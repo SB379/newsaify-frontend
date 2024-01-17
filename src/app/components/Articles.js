@@ -69,7 +69,7 @@ const Articles = ({ query, buttonPress }) => {
             </p>
           </div>
         </div>
-        <div className="flex flex-col pl-8 pt-8 w-full">
+        <div className="flex flex-col pl-8 pt-4 w-full">
             <text className="font-thin text-[32px] text-white">Top Stories</text>
             {jsonData.articles.items.map((item, index) => (
                 <div key={index} className="w-[95%] h-40 bg-queryBG bg-opacity-10 rounded-3xl flex flex-row mb-10 shadow-newsaify shadow-sm">
