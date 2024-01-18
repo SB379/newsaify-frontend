@@ -40,8 +40,8 @@ const Articles = ({ query, buttonPress }) => {
     //Will need to wrap this into a div and center it slightly but not an issue right now
     return <Discuss
         visible={true}
-        height="80"
-        width="80"
+        height="100vh"
+        width="100vw"
         ariaLabel="discuss-loading"
         wrapperStyle={{}}
         wrapperClass="discuss-wrapper"
