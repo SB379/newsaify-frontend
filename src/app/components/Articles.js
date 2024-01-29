@@ -36,6 +36,24 @@ const Articles = ({ query, buttonPress }) => {
 
   }, [buttonPress]); // Include query in the dependency array to trigger a re-fetch when the query changes
 
+  const handleShareClick = async () => {
+    if (!jsonData) return;
+
+    const { facts, articles } = jsonData;
+
+    const finalText = facts + "\n\n" + "Generated with NewsAIfy"
+
+    // Copy facts to clipboard
+    await navigator.clipboard.writeText(finalText);
+
+    // Copy URL of the first image from the articles to clipboard
+    // const firstImageUrl = articles.items.length > 0 ? articles.items[0].img : '';
+    // await navigator.clipboard.writeText(firstImageUrl);
+
+    // Optionally, you can notify the user that the data has been copied
+    alert('Facts copied to clipboard!');
+  };
+
   if (!jsonData) {
     //Will need to wrap this into a div and center it slightly but not an issue right now
     return <Discuss
@@ -63,10 +81,16 @@ const Articles = ({ query, buttonPress }) => {
                 </div>
             ))} */}
 
-          <div  className='bg-queryBG bg-opacity-10 rounded-3xl w-[95%] flex mb-10 shadow-newsaify shadow-sm'>
+          <div  className='flex-col bg-queryBG bg-opacity-10 rounded-3xl w-[95%] flex mb-10 shadow-newsaify shadow-sm'>
             <p  className = 'text-white font-thin ml-2 p-4'>
                 {jsonData.facts}
             </p>
+            <div className='flex w-full justify-end items-center'>
+              <button 
+                className='bg-newsaify rounded-3xl w-20 font-thin mb-2 mr-2 text-white hover:bg-white hover:text-newsaify'
+                onClick={handleShareClick}
+              >Share</button>
+            </div>
           </div>
         </div>
         <div className="flex flex-col pl-8 pt-4 w-full">
@@ -85,10 +109,6 @@ const Articles = ({ query, buttonPress }) => {
             ))}
         </div>
     </div>
-    
-    // <div>
-    //   <Facts url = {jsonData.items[0].link} buttonPress={buttonPress}/>
-    // </div>
   );
 };
 
