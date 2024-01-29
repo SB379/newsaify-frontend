@@ -41,7 +41,7 @@ const Articles = ({ query, buttonPress }) => {
 
     const { facts, articles } = jsonData;
 
-    const finalText = facts + "\n\n" + "Generated with NewsAIfy"
+    const finalText = facts + "\n\n" + "Generated with NewsAIfy" + "\n\n" + "https://newsaify.vercel.app/"
 
     // Copy facts to clipboard
     await navigator.clipboard.writeText(finalText);
