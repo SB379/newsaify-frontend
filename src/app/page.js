@@ -86,7 +86,7 @@ export default function Home() {
               <text className='font-bold md:text-[40px] text-2xl text-white'>fy</text>
             </Link>
             
-            { !isSigned ?
+            {/* { !isSigned ?
                 <>
                   <button className="mt-2 bg-newsaify rounded-full p-4 mr-4 ml-2 hover:bg-black border border-newsaify" onClick={googleAuth}>
                     <svg xmlns="http://www.w3.org/2000/svg" height="20" width="19.0625" viewBox="0 0 488 512">
@@ -100,7 +100,7 @@ export default function Home() {
                     <img className='text-black rounded-full' src = {user.user_metadata.avatar_url} alt = "Google User" width={"48"} height={"48"}/>
                   </button>
                 </>
-            }
+            } */}
           </div>
 
       {/* <NavBar/> */}
