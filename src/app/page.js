@@ -116,7 +116,7 @@ export default function Home() {
               placeholder="What are you curious about today?" 
               onChange={handleInputChange}
               onKeyDown={handleKeyPress}/>
-              <button className='bg-newsaify rounded-full md:w-20 w-1/2 h-20 md:mb-[5%] mb-[20%] flex items-center justify-center border border-newsaify hover:bg-black' onClick={() => {getTopArticles()}}>
+              <button className='bg-newsaify rounded-full md:w-20 w-1/2 h-20 md:mb-[5%] mb-[5%] flex items-center justify-center border border-newsaify hover:bg-black' onClick={() => {getTopArticles()}}>
                 <FontAwesomeIcon icon={faArrowRight} className= "w-8 h-12" color="#F4F4FF"/>
               </button>
           </div>
