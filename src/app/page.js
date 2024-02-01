@@ -112,11 +112,11 @@ export default function Home() {
           {/* <NavBar/> */}
           <div className='h-[90vh] w-full flex md:flex-row flex-col items-center justify-center'>
               <input 
-              className='rounded-full shadow-lg md:w-1/2 w-3/4 h-20 text-black md:font-thin font-normal md:text-2xl pl-6 mb md:mr-12' 
+              className='rounded-full shadow-lg md:w-1/2 w-3/4 h-20 text-black md:font-thin font-normal md:text-2xl pl-6 mb-[5%] md:mr-12' 
               placeholder="What are you curious about today?" 
               onChange={handleInputChange}
               onKeyDown={handleKeyPress}/>
-              <button className='bg-newsaify rounded-full md:w-20 w-1/2 h-20 md:mb-[5%] mb-[25%] flex items-center justify-center border border-newsaify hover:bg-black' onClick={() => {getTopArticles()}}>
+              <button className='bg-newsaify rounded-full md:w-20 w-1/2 h-20 md:mb-[5%] mb-[20%] flex items-center justify-center border border-newsaify hover:bg-black' onClick={() => {getTopArticles()}}>
                 <FontAwesomeIcon icon={faArrowRight} className= "w-8 h-12" color="#F4F4FF"/>
               </button>
           </div>
