@@ -126,7 +126,7 @@ export default function NavBar () {
                    </li>
                  ))}
                </ul>
-             )}
+             )} */}
 
             { !isSigned ?
                 <>
@@ -142,7 +142,7 @@ export default function NavBar () {
                     <img className='text-black rounded-full' src = {user.user_metadata.avatar_url} alt = "Google User" width={"48"} height={"48"}/>
                   </button>
                 </>
-              } */}
+            }
           </div>
     );
 };
